@@ -1,0 +1,38 @@
+{
+    
+    "minutes" : {
+    
+        "one": "One minute ago",
+        "other": "%@ minutes ago"
+    },
+    "seconds" : {
+        
+        "one": "One second ago",
+        "other": "%@ seconds ago"
+    },
+    "hours" : {
+        
+        "one": "One hour ago",
+        "other": "%@ hours ago"
+    },
+    "days" : {
+        
+        "one": "One day ago",
+        "other": "%@ days ago"
+    },
+    "weeks" : {
+        
+        "one": "One week ago",
+        "other": "%@ weeks ago"
+    },
+    "months" : {
+        
+        "one": "One month ago",
+        "other": "%@ months ago"
+    },
+    "years" : {
+        
+        "one": "One year ago",
+        "other": "%@ years ago"
+    }
+}

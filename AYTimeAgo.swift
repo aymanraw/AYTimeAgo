@@ -14,6 +14,8 @@ public class AYTimeAgo {
     
     public var localeJSON: [String: AnyObject]?
     
+    public static var locale = Locale.current
+    
     private init(){
         
         localeJSON = loadJSON()
@@ -39,7 +41,7 @@ public class AYTimeAgo {
         
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .none
-        numberFormatter.locale = Locale.current
+        numberFormatter.locale = AYTimeAgo.locale
         
         for (key, value) in dictionary {
             
@@ -85,7 +87,7 @@ public class AYTimeAgo {
     
     func url() -> URL?{
         
-        if let path = Bundle.main.url(forResource: Locale.current.languageCode, withExtension: "json"){
+        if let path = Bundle.main.url(forResource: AYTimeAgo.locale.languageCode, withExtension: "json"){
             
             return path
         }

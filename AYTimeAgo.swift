@@ -50,33 +50,33 @@ public class AYTimeAgo {
             if !matchArray.isEmpty {
                 
                 let nsRange = NSRangeFromString(key)
-                let range = Range(uncheckedBounds: (nsRange.location, nsRange.length))
+                let range = nsRange.toRange()
                 
-                if range.contains(count) {
+                if range?.contains(count) == true {
                     
                     if let num = numberFormatter.string(from: count as NSNumber) {
                         
-                        return String(format: value, num)
+                        return  String(format: value, locale: AYTimeAgo.locale, num)
+
                     }
                 }
             }
         }
         
-        if count == 1 {
+        let key = getKey(from: count)
+        
+        var formattedString = dictionary[key]
+        
+        if formattedString == nil {
             
-            return dictionary["one"]
+            formattedString = dictionary["other"]
         }
         
-        if count == 2, let two = dictionary["two"] {
-            
-            return two
-        }
-        
-        if let value = dictionary["other"] {
+        if let value = formattedString {
             
             if let num = numberFormatter.string(from: count as NSNumber) {
                 
-                return String(format: value, num)
+                return String(format: value, locale: AYTimeAgo.locale, num)
             }
         }
         
@@ -84,6 +84,21 @@ public class AYTimeAgo {
         
     }
     
+    func getKey(from count: Int) -> String{
+        
+        if count == 1 {
+            
+            return "one"
+        }
+        
+        if count == 2 {
+            
+            return "two"
+        }
+        
+        return "other"
+
+    }
     
     func url() -> URL?{
         

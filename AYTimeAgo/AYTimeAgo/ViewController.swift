@@ -18,9 +18,9 @@ class ViewController: UIViewController {
         
         AYTimeAgo.locale = Locale(identifier: "ar")
         
-        for i in 2000...6000 {
+        for i in 1...200 {
             
-            print(now.ay_timeAgo(from: now.ay_addSeconds(value: i * -1)))
+            print(now.ay_timeAgo(from: now.ay_addHours(value: i * -1)))
            
         }
     }
